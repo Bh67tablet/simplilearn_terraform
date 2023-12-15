@@ -39,8 +39,8 @@ sudo apt install python3-pip -y >>/var/tmp/yum.update 2>&1
 echo `hostname -I` > ip_`hostname`.txt
 aws ec2 describe-instances --filters 'Name=tag:Name,Values=*' >> ip_`hostname`.txt
 aws s3 cp ip_`hostname`.txt s3://bh67-githubactions-bucket/
-sudo su - -c 'su - ansiuser -c "git clone https://github.com/Bh67tablet/simplilearn_aws4kubernetes.git"' >>/var/tmp/yum.update 2>&1
-sudo chmod 755 /home/ansiuser/simplilearn_aws4kubernetes/AnsibleMaster/*.sh >>/var/tmp/yum.update 2>&1
+sudo su - -c 'su - ansiuser -c "git clone https://github.com/Bh67tablet/simplilearn_terraform.git"' >>/var/tmp/yum.update 2>&1
+sudo chmod 755 /home/ansiuser/simplilearn_terraform/AnsibleMaster/*.sh >>/var/tmp/yum.update 2>&1
 # autoinstall
 sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 EOF
