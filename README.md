@@ -32,11 +32,10 @@ Install Jenkins, Java and Python in the instance.
 3. aws configure
 4. git clone this repo
 
-## setup python, java, Ansible, Jenkins
-cd this repo
-terraform init
-terraform plan
-terraform apply --auto-approve
+## install python, java, Ansible, Jenkins
+cd in this repo
+run_terraform.sh
+
 ### setup jenkins
 1. ssh tunnel with public IPv4: (e.g.: ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080)
 2. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
