@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# add actual Ansible Worker IPv4 adresses:
+#
+cat > /home/ansiuser/ips << EOF
+172.31.33.219
+172.31.37.180
+EOF
+#
 echo [webserver] > /home/ansiuser/myinventory
 for ip in $(cat /home/ansiuser/ips); do echo $ip >> /home/ansiuser/myinventory; done
 #
