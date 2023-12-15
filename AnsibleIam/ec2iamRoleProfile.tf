@@ -41,17 +41,3 @@ resource "aws_iam_instance_profile" "test_profile" {
   name = "test_profile"
   role = aws_iam_role.test_role.name
 }
-
-resource "aws_instance" "web" {
-  ami           = "ami-0fc5d935ebf8bc3bc"
-  instance_type = "t3.micro"
-  iam_instance_profile = "${aws_iam_instance_profile.test_profile.name}"
-
-  tags = {
-    Name = "HelloWorld"
-  }
-}
-
-provider "aws" {
- 	region 	= "us-east-1"
-}
