@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# add IPv4 adresses to /home/ansiuser/ips
+#
+cat > /home/ansiuser/ips << EOF
+172.31.33.219
+172.31.37.180
+EOF
+#
 sudo useradd -m ansiuser -s /bin/bash -p 'ansiuser'
 sudo echo "ansiuser:ansiuser" | chpasswd
 sudo cp -p /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
@@ -7,9 +15,6 @@ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/
 sudo sed -i "s/^root.*$/root    ALL=(ALL:ALL) ALL\nansiuser ALL=NOPASSWD: ALL/g" /etc/sudoers
 sudo systemctl restart sshd
 cp /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg.bak
-#
-# add IPv4 adresses to /home/ansiuser/ips
-#
 cat > /etc/ansible/ansible.cfg << EOF
 [defaults]
 inventory = /home/ansiuser/myinventory
