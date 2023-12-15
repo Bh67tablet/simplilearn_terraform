@@ -30,5 +30,6 @@ sudo sh /home/ansiuser/simplilearn_terraform/AnsibleMaster/master_config_run_as_
 sudo su - -c 'su - ansiuser -c /home/ansiuser/simplilearn_terraform/AnsibleMaster/master_config_run_as_ansiuser.sh' >>/var/tmp/ansiuser.log 2>&1
 # autoinstall
 sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+sudo bash /home/ansiuser/simplilearn_terraform/AnsibleMaster/install_jenkins.sh >>/var/tmp/yum.update 2>&1
 EOF
 }
