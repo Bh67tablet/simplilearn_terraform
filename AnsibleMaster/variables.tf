@@ -2,10 +2,6 @@ variable "region" {
 	default ="us-east-1" 
 } 
 
-variable "subnet_id" {
-  type        = string
-}
-
 variable "ec2_parameters" { 
 	default = { 
 		region = "us-east-1"
