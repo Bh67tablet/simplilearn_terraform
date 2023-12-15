@@ -1,10 +1,4 @@
-# config
-## ssh tunnel jenkins (local git bash)
-ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080
-## jenkins
-Manage Jenkins--> Configure Tools --> Scroll down to find Ansible --> Add ansible--> give name as myansible-->give path as /usr/bin
-# simplilearn_terraform
-Automating Infrastructure using Terraform
+# Automating Infrastructure using Terraform, Ansible, Jenkins
 Course-end Project 1
 Description
 
@@ -30,3 +24,21 @@ Expected Deliverables:
 Launch an EC2 instance using Terraform
 Connect to the instance
 Install Jenkins, Java and Python in the instance.
+
+# setup
+## terraform
+1. launch terraform ec2
+2. create aws user with cli admin access policy
+3. aws configure
+4. git clone this repo
+
+## setup python, java, Ansible, Jenkins
+cd this repo
+terraform init
+terraform plan
+terraform apply --auto-approve
+### setup jenkins
+#### ssh tunnel jenkins (local git bash)
+ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080
+#### jenkins
+Manage Jenkins--> Configure Tools --> Scroll down to find Ansible --> Add ansible--> give name as myansible-->give path as /usr/bin
