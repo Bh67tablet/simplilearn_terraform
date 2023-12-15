@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "bh67" {
-	count = 1
+	count = 2
 	ami 				= var.ec2_parameters.ami
 	instance_type 			= var.ec2_parameters.itype
 	subnet_id 			= var.subnet_id
@@ -13,7 +13,7 @@ resource "aws_instance" "bh67" {
 	tags = {
 	    # The count.index allows you to launch a resource 
 	    # starting with the distinct index number 0 and corresponding to this instance.
-	    Name = "Kubernetes-${count.index}"
+	    Name = "AnsibleWorker-${count.index}"
   	}
 user_data = <<EOF
 #! /bin/bash
@@ -43,16 +43,6 @@ sudo su - -c 'su - ansiuser -c "git clone https://github.com/Bh67tablet/simplile
 sudo chmod 755 /home/ansiuser/simplilearn_aws4kubernetes/AnsibleMaster/*.sh >>/var/tmp/yum.update 2>&1
 # autoinstall
 sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
-## Install Docker
-sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installDocker.sh -P /tmp
-sudo chmod 755 /tmp/installDocker.sh
-sudo bash /tmp/installDocker.sh
-## Install kubeadm,kubelet,kubectl
-sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installK8S-v1-23.sh -P /tmp
-sudo chmod 755 /tmp/installK8S-v1-23.sh
-sudo bash /tmp/installK8S-v1-23.sh
-sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/kubernetes/0-install/daemon.json -P /etc/docker
-sudo systemctl restart docker.service
 EOF
 
   vpc_security_group_ids = [
