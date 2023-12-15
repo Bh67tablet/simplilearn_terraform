@@ -1,3 +1,8 @@
+# config
+## ssh tunnel jenkins (local git bash)
+ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080
+## jenkins
+Manage Jenkins--> Configure Tools --> Scroll down to find Ansible --> Add ansible--> give name as myansible-->give path as /usr/bin
 # simplilearn_terraform
 Automating Infrastructure using Terraform
 Course-end Project 1
