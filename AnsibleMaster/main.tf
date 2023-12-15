@@ -25,10 +25,10 @@ sudo cp -p /etc/sudoers /etc/sudoers.bak
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo sed -i "s/^root.*$/root    ALL=(ALL:ALL) ALL\nansiuser ALL=NOPASSWD: ALL/g" /etc/sudoers
 sudo systemctl restart sshd
-sudo su - -c 'su - ansiuser -c "git clone https://github.com/Bh67tablet/simplilearn_aws4kubernetes.git"' >>/var/tmp/yum.update 2>&1
-sudo chmod 755 /home/ansiuser/simplilearn_aws4kubernetes/AnsibleMaster/*.sh >>/var/tmp/yum.update 2>&1
-sudo sh /home/ansiuser/simplilearn_aws4kubernetes/AnsibleMaster/master_config_run_as_root.sh >>/var/tmp/yum.update 2>&1
-sudo su - -c 'su - ansiuser -c /home/ansiuser/simplilearn_aws4kubernetes/AnsibleMaster/master_config_run_as_ansiuser.sh' >>/var/tmp/ansiuser.log 2>&1
+sudo su - -c 'su - ansiuser -c "git clone https://github.com/Bh67tablet/simplilearn_terraform.git"' >>/var/tmp/yum.update 2>&1
+sudo chmod 755 /home/ansiuser/simplilearn_terraform/AnsibleMaster/*.sh >>/var/tmp/yum.update 2>&1
+sudo sh /home/ansiuser/simplilearn_terraform/AnsibleMaster/master_config_run_as_root.sh >>/var/tmp/yum.update 2>&1
+sudo su - -c 'su - ansiuser -c /home/ansiuser/simplilearn_terraform/AnsibleMaster/master_config_run_as_ansiuser.sh' >>/var/tmp/ansiuser.log 2>&1
 # autoinstall
 sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 EOF
