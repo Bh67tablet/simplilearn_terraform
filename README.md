@@ -38,7 +38,13 @@ terraform init
 terraform plan
 terraform apply --auto-approve
 ### setup jenkins
+1. ssh tunnel with public IPv4: (e.g.: ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080)
+2. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+3. localhost:8081
+4. edit Jenkins/dev.ini (add actual Ansible Worker private IPv4)
+5. add Ansible plugin
+6. Manage Jenkins--> Configure Tools --> Scroll down to find Ansible --> Add ansible--> give name as myansible-->give path as /usr/bin
+7. add pipeline, with git repo, this repository, change master to main, Jenkins/jenkinsfile, user: ansiuser
 #### ssh tunnel jenkins (local git bash)
 ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080
-#### jenkins
-Manage Jenkins--> Configure Tools --> Scroll down to find Ansible --> Add ansible--> give name as myansible-->give path as /usr/bin
+
