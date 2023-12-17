@@ -47,3 +47,4 @@ run_terraform.sh
 #### ssh tunnel jenkins (local git bash)
 ssh -i "simplilearn_key.pem" ubuntu@ec2-18-212-50-222.compute-1.amazonaws.com -L 8081:18.212.50.222:8080
 
+![1](Jenkins/api_token.png)
