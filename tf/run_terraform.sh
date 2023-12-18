@@ -1,14 +1,9 @@
 #!/bin/bash
-cd $HOME/simplilearn_terraform/AnsibleS3
-terraform init
-terraform apply --auto-approve
-cd $HOME/simplilearn_terraform/AnsibleIam
-terraform init
-terraform apply --auto-approve
-cd $HOME/simplilearn_terraform/AnsibleWorker
-terraform init
-terraform apply --auto-approve
-sleep 60
-cd $HOME/simplilearn_terraform/AnsibleMaster
-terraform init
-terraform apply --auto-approve
+terraform -chdir=AnsibleS3 init 
+terraform -chdir=AnsibleS3 apply --auto-approve
+terraform -chdir=AnsibleIam init 
+terraform -chdir=AnsibleIam apply --auto-approve
+terraform -chdir=AnsibleWorker init 
+terraform -chdir=AnsibleWorker apply --auto-approve
+terraform -chdir=AnsibleMaster init
+terraform -chdir=AnsibleMaster apply --auto-approve
