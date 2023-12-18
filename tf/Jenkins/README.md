@@ -1,4 +1,11 @@
 # jenkins-cli
+## configure Ansible Plugin
+Jenkins verwalten >
+Tools: >
+Ansible: 
+myansible
+/usr/bin
+
 ## create-job
 java -jar jenkins-cli.jar -auth admin:113daeb9e795aebf844540dd96fc120ac6 -s http://localhost:8080 create-job pipeline3 < pipeline1.xml
 
