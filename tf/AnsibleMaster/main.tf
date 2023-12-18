@@ -27,7 +27,7 @@ sudo systemctl restart sshd
 sudo su - -c 'su - ansiuser -c "git clone https://github.com/Bh67tablet/simplilearn_terraform.git"' >>/var/tmp/yum.update 2>&1
 sudo chmod 755 /home/ansiuser/simplilearn_terraform/tf/AnsibleMaster/*.sh >>/var/tmp/yum.update 2>&1
 sudo sh /home/ansiuser/simplilearn_terraform/tf/AnsibleMaster/master_config_run_as_root.sh >>/var/tmp/yum.update 2>&1
-sudo su - -c 'su - ansiuser -c /home/ansiuser/tf/simplilearn_terraform/tf/AnsibleMaster/master_config_run_as_ansiuser.sh' >>/var/tmp/ansiuser.log 2>&1
+sudo su - -c 'su - ansiuser -c /home/ansiuser/simplilearn_terraform/tf/AnsibleMaster/master_config_run_as_ansiuser.sh' >>/var/tmp/ansiuser.log 2>&1
 # autoinstall
 sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 sudo bash /home/ansiuser/simplilearn_terraform/tf/AnsibleMaster/install_jenkins.sh >>/var/tmp/yum.update 2>&1
