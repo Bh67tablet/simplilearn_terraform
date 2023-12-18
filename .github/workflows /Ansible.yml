@@ -3,6 +3,9 @@ name: Ansible
 on:
   workflow_dispatch:
 
+env:
+  workspace: ${{ github.workspace }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,7 +43,9 @@ jobs:
     - name: Execute terraform scripts
       run: |
         pwd
-        sudo chmod u+x run_terraform.sh
-        ./run_terraform.sh
+        echo ${workspace}
+        ls ${workspace}
+        #sudo chmod u+x run_terraform.sh
+        #./run_terraform.sh
 
         
