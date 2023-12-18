@@ -45,5 +45,5 @@ jobs:
         pwd
         echo ${workspace}
         ls ${workspace}
-        #sudo chmod u+x run_terraform.sh
-        #./run_terraform.sh
+        sudo chmod u+x run_terraform.sh
+        ./run_terraform.sh
