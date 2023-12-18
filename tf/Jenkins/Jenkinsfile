@@ -11,7 +11,7 @@ pipeline{
       stage('install maven & Docker')
       {
           steps{
-              ansiblePlaybook credentialsId: 'ansiuser', disableHostKeyChecking: true, installation: 'myansible', inventory: 'Jenkins/dev.inv', playbook: 'Jenkins/PlaybookInstall.yml'
+              ansiblePlaybook credentialsId: 'ansiuser', disableHostKeyChecking: true, installation: 'myansible', inventory: 'tf/Jenkins/dev.inv', playbook: 'tf/Jenkins/PlaybookInstall.yml'
           }
       }
     }
