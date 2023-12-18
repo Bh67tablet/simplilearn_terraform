@@ -47,5 +47,3 @@ jobs:
         ls ${workspace}
         #sudo chmod u+x run_terraform.sh
         #./run_terraform.sh
-
-        
