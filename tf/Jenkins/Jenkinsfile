@@ -1,0 +1,18 @@
+pipeline{
+    
+    agent any
+    stages{
+      stage('Clone the repo with playbook')  
+      {
+          steps{
+              git branch: 'main', url: 'https://github.com/Bh67tablet/simplilearn_terraform.git'
+          }
+      }
+      stage('install maven & Docker')
+      {
+          steps{
+              ansiblePlaybook credentialsId: 'ansiuser', disableHostKeyChecking: true, installation: 'myansible', inventory: 'Jenkins/dev.inv', playbook: 'Jenkins/PlaybookInstall.yml'
+          }
+      }
+    }
+}

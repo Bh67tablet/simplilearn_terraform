@@ -1,0 +1,12 @@
+---
+- hosts: webserver
+  become: true
+  tasks:
+  - name: update apt-get repo
+    command: sudo apt-get update -y
+  - name: Install maven on servers
+    command: sudo apt-get install maven -y
+  - name: Download Docker
+    command: curl -fsSL https://get.docker.com -o get-docker.sh
+  - name: Install Docker
+    command: sudo sh ./get-docker.sh --dry-run
